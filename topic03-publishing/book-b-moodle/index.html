@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../index.html">  Publishing  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Lab-04-Moodle">
+        Lab-04-Moodle
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
+    
+  </div>
+</div>
+
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic01-setup/book-setup/index.html">Lab-01-Setup </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic02-labs/book-labs/index.html">Lab-02-Composition </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-a-github-desktop/index.html">Lab-03-Publish </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-b-moodle/index.html">Lab-04-Moodle </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic04-portfolios/book-portfolio/index.html">Lab-05-Portfolio </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Lab-04-Moodle">
+          <h1>Objectives</h1>
+<p>Bind a Moodle Topic to a gh-pages hosted tutors topic.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h1>Publishing to Moodle</h1>
+<p>Now that we have the site live - we may choose to keep Moodle as the primary gateway to our course. To do this, we would like to &quot;import&quot; the github hosted site into moodle - rather than replicating the material there. </p>
+<p>To get ready for the import, we need to make one small change to our course. In the source folder, there is a file called <code>courseurl</code>. </p>
+<p><img src="img/13.png" alt=""></p>
+<h2>courseurl</h2>
+<p>This is the default contents:</p>
+<pre><code>http://yourgithubname.github.io/course-title</code></pre>
+<p>Edit this, and replace with the actual url of your deployed course</p>
+<pre><code>http://[YOUR-GITHUB-NAME].github.io/[YOUR-REPO-NAME]</code></pre>
+<p>For instance:</p>
+<pre><code>http://edeleastar.github.io/tutors-starter-01</code></pre>
+<p>Note that the protocol in the above is <code>http</code> not <code>https</code>. This is important.</p>
+<p>Regenerate the course via the tutors command, then commit and sync as outlined in the previous lab.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>ajaxlabel.html</h1>
+<p>For each topic in the <code>public-site</code> folder, tutors will have generated a file called <code>ajaxlabel.html</code>:</p>
+<p><img src="img/12.png" alt=""></p>
+<p>There is one of these files for each topic.</p>
+<p>The contents of this file will establish the link from a moodle topic to a github hosted site:</p>
+<h2>Example ajaxlabel.html</h2>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg-11 col-md-11 col-sm-11&quot;&gt;
+      &lt;iframe id=&quot;output&quot; style=&quot;width: 100%;&quot; frameborder=&quot;0&quot; height=&quot;1200&quot;&gt;
+      &lt;/iframe&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+
+  $.ajax({
+    type: &#39;GET&#39;,
+    url: &#39;//wit-tutors.github.io/tutors-starter-public//topic01/indexmoodle.html&#39;,
+    xhrFields: {
+      withCredentials: false
+    },
+    success: function (data) {
+      $(&#39;#output&#39;).contents().find(&#39;html&#39;).html(data);
+    }
+  });
+
+&lt;/script&gt;</code></pre>
+<p>There is no need to understand/edit or work with this file - we can use it exactly as is. However, please note that each topic has its own slightly different version - so you will need each of these in the procedures that follow.</p>
+<p>And the procedure is:</p>
+<ol>
+<li>Create Empty Topic in Moodle</li>
+<li>Add a Label to the Topic</li>
+<li>Copy <code>Ajaxlabel.html</code> into the label</li>
+</ol>
+<p>This is illustrated in the next step...</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h1>Publishing to Moodle</h1>
+<h2>1. Create Empty Topic in Moodle</h2>
+<p>For any existing or new moodle course, create an empty topic:</p>
+<p><img src="img/14.png" alt=""></p>
+<h2>2. Add a Label to this Topic</h2>
+<p>Switch to edit mode, and add a new <code>label</code> to the topic:</p>
+<p><img src="img/15.png" alt=""></p>
+<h2>3: Copy/paste the contents of <code>ajaxlabel.html</code> into the label</h2>
+<p>This step will require you to edit the label, and change the editing mode.</p>
+<p>When editing, first reveal additional toolbar options:</p>
+<p><img src="img/16.png" alt=""></p>
+<p>And now switch to <code>HTML Source</code> view by pressing the <code>&lt;&gt;</code> icon:</p>
+<p><img src="img/17.png" alt=""></p>
+<p>Now, copy/paste the entire contents of the selected <code>ajaxlabel.html</code> files directly into the label:</p>
+<p><img src="img/18.png" alt=""></p>
+<p>Press save - and switch back to normal (non editing) mode. The topic hosted on github should be visible. The content will not be visible until you switch (from edit mode).</p>
+<p><img src="img/19.png" alt=""></p>
+<p>This is a one-off step, establishing a binding between the moodle topic and the topic as hosted on github. Any updates to the github content will be automatically rendered in moodle. I.e. you do not need to revisit this step if you make changes to your content.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="Exercises">
+          <h1>Exercises</h1>
+<h2>Exercise 1: New Topic</h2>
+<p>Try introducing a completely new topic into the course you have been experimenting with. Perhaps just duplicate an existing topic - but make some changes to the talk images + summaries.</p>
+<p>Publish the course with the new topic, and also bind the published topic to a moodle topic.</p>
+<h2>Exerise 2: Updating a Published Topic</h2>
+<p>To reinforce the nature of the binding between Moodle and gh-pages, try the following:</p>
+<ol>
+<li>Create a new <code>talk</code> in the topic you have bound to gihub  exercise above (perhaps just duplicate an existing talk).</li>
+<li>Regenerate the course using the tutors command.</li>
+<li>Verify that the topic now contains the new talk.</li>
+<li>Commit &amp; Sync the repository using Github Desktop</li>
+<li>Refresh the moodle topic</li>
+</ol>
+<p>The last step does NOT require you to edit the topic/label in any way - we can just wait for it to fetch the updated version when the caches have timed out.</p>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+</script>
+</body>
+</html>

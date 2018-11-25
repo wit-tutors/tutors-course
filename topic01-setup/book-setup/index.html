@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../index.html">  Setup  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Lab-01-Setup">
+        Lab-01-Setup
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
+      <a class="item" data-tab="04">
+        04
+      </a>
+    
+      <a class="item" data-tab="05">
+        05
+      </a>
+    
+      <a class="item" data-tab="06">
+        06
+      </a>
+    
+      <a class="item" data-tab="07">
+        07
+      </a>
+    
+      <a class="item" data-tab="08">
+        08
+      </a>
+    
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
+    
+  </div>
+</div>
+
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic01-setup/book-setup/index.html">Lab-01-Setup </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic02-labs/book-labs/index.html">Lab-02-Composition </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-a-github-desktop/index.html">Lab-03-Publish </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-b-moodle/index.html">Lab-04-Moodle </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic04-portfolios/book-portfolio/index.html">Lab-05-Portfolio </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Lab-01-Setup">
+          <h1>Objectives</h1>
+<p>Install the tutors command line application and take for a first spin.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h1>Install Procedure</h1>
+<p>Tutors relies on the following:</p>
+<ul>
+<li><a href="https://git-scm.com/">https://git-scm.com/</a></li>
+<li><a href="https://nodejs.org">https://nodejs.org</a></li>
+<li><a href="https://desktop.github.com">https://desktop.github.com</a></li>
+</ul>
+<p>Additionally, any <code>programmer</code> style editor:</p>
+<ul>
+<li><a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a></li>
+<li><a href="https://atom.io/">https://atom.io/</a></li>
+</ul>
+<p>She following steps will work though these installations...</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h2>git</h2>
+<p>Install git for your platform:</p>
+<ul>
+<li><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+</ul>
+<p>Accept all the default options if they are presented (usually just for Windows).</p>
+<p>If the installation succeeded, then verify the version. Do this by opening a shell (command prompt on Windows) and enter the following:</p>
+<pre><code>git --version</code></pre>
+<p>You should also set your username + email in git now. These are the identifiers which will be associated with subsequent git commands. These commands are also entered in the shell:</p>
+<pre><code>git config --global user.name &quot;John Doe&quot;
+git config --global user.email johndoe@example.com</code></pre>
+<p><img src="img/23.png" alt=""></p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h2>node.js</h2>
+<p>Install the latest node:</p>
+<ul>
+<li><a href="https://nodejs.org/">https://nodejs.org/</a></li>
+</ul>
+<p>Select LTS version, shown here on the left:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>If the installation succeeds, verify the version:</p>
+<pre><code>node --version</code></pre>
+<p><img src="img/24.png" alt=""></p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="04">
+          <h1>Git Desktop</h1>
+<p>If you dont already have a github account, sign up now.</p>
+<ul>
+<li><a href="https://github.com/join">https://github.com/join</a></li>
+</ul>
+<p>Download and install Git Desktop from this site here:</p>
+<ul>
+<li><a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+</ul>
+<p><img src="img/26.png" alt=""></p>
+<p>Install this app now. </p>
+<p>Once installed, run the app &amp; log in to your github account:</p>
+<p><img src="img/27.png" alt=""></p>
+<p>Initially it may not find any local repos - skip this step for the moment:</p>
+<p><img src="img/28.png" alt=""></p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="05">
+          <h2>Sublime</h2>
+<p>Any plain text editor will do. Sublime is a suitable choice:</p>
+<ul>
+<li><a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a></li>
+</ul>
+<p>Once installed, Sublime should be an app, launch in the usual way:</p>
+<p><img src="img/05.png" alt=""></p>
+<p>It is worth using the &#39;open folder&#39; feature:</p>
+<p><img src="img/06.png" alt=""></p>
+<p>This will keep a tree view of your selected folder on a panel on the left. Having this view open can be very useful when authoring content in tutors.</p>
+<p><img src="img/07.png" alt=""></p>
+<p>If you choose <a href="https://atom.io">Atom</a>, it has equivalent <a href="https://github.com/atom/tree-view">features</a>.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="06">
+          <h1>Install Tutors</h1>
+<p>With git + node installed, we can install tutors with this command:</p>
+<pre><code>npm install tutors -g</code></pre>
+<p>This should take a minute or two:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>Verify the installation be entering the command:</p>
+<pre><code>tutors --version</code></pre>
+<p><img src="img/04.png" alt=""></p>
+<p>Tutors is hosted on github and the npm registry:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/tutors">https://www.npmjs.com/package/tutors</a></li>
+<li><a href="https://github.com/edeleastar/tutor">https://github.com/edeleastar/tutor</a></li>
+</ul>
+<p>There is an install and simple guide there. This course will cover all that is needed to get going.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="07">
+          <h1>Generate a Course</h1>
+<p>The simplest way to get started with tutors is to use the <code>new</code> command to generate a template course:</p>
+<pre><code>tutors new</code></pre>
+<p>This should respond with:</p>
+<pre><code>Creating new template course...
+Cloning into &#39;tutors-starter-0&#39;...
+Next steps...
+cd into tutors-starter-0 and run &quot;tutors&quot; again
+This will generate the course web in &quot;tutors-starter/public-site&quot;</code></pre>
+<p>The command will have generated a new folder: <code>tutors-starter-0</code>, populated with a sample/template course:</p>
+<p><img src="img/09.png" alt=""></p>
+<p>Before looking at the structure of the course in detail - lets &quot;build&quot; the course first and look at the output from a student perspective.</p>
+<p>Open a shell, and make sure the current directory is <code>tutors-starter-0</code>:</p>
+<p><img src="img/10.png" alt=""></p>
+<p>Then enter the <code>tutors</code> command:</p>
+<pre><code>tutors</code></pre>
+<p>This will respond with:</p>
+<pre><code>tutors course web generator: 1.3.8
+ Topic 1
+ Talks:
+  --&gt;Lecture I
+  --&gt;Lecture II
+  --&gt;Resource I
+ Labs:
+  --&gt;Lab-01
+ Topic 2
+ Talks:
+  --&gt;Lecture III
+  --&gt;Lecture IV
+  --&gt;Resource II
+ Labs:
+  --&gt;Lab-02
+ Topic 3
+ Talks:
+  --&gt;Lecture I
+  --&gt;Lecture II
+  --&gt;Resource III
+ Labs:
+  --&gt;Lab-03</code></pre>
+<p>Tutors has now generated a complete web site from the course materials. This is populated into a <code>public-site</code> folder:</p>
+<p><img src="img/11.png" alt=""></p>
+<p>Opening <code>index.html</code> in any browser and we see the students view of the course.</p>
+<p><img src="img/12.png" alt=""></p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="08">
+          <h1>A Tour of the Courseweb</h1>
+<p>You should be able to locate all of the views below via the navigation controls on the site:</p>
+<h2>The Home page</h2>
+<p><img src="img/12.png" alt=""></p>
+<h2>A Topic Page</h2>
+<p><img src="img/13.png" alt=""></p>
+<h2>A Lab</h2>
+<p><img src="img/14.png" alt=""></p>
+<h2>All Labs in the Course</h2>
+<p><img src="img/15.png" alt=""></p>
+<h2>All Slides in the Course</h2>
+<p><img src="img/16.png" alt=""></p>
+<h2>Sample Slide Deck</h2>
+<p><img src="img/17.png" alt=""></p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="Exercises">
+          <h1>Exercises</h1>
+<h2>Exercise 1: Labs</h2>
+<p>Open one of the labs:</p>
+<p><img src="img/14.png" alt=""></p>
+<p>Experiment with the menu bar along the top. The behaviour of the numbers is clear enough - it moves the student through a particular lesson (like this one). Try <code>left-arrow</code> and <code>right-arrow</code> - they should navigate forward and backward though the steps.</p>
+<p>However, the other icons + titles are also navigable. Try them now to see where they lead.</p>
+<h2>Exercise 2: Editing the Course Sources</h2>
+<p>Make sure you can open sublime - and have the complete courseweb open in the side panel (use open-&gt;folder to do this):</p>
+<p><img src="img/18.png" alt=""></p>
+<p>We can make a small change as an initial experiment. Open the <code>credits</code> file, and replace &#39;your name&#39; with your own name, and email or whatever.</p>
+<p>Save the changes, and run the tutors command again. Remember, your tutors command is always run from a shell in the root of the course folder (./tutors-starter-01 in these examples.)</p>
+<p>Refresh the browser, and verify that your name has appeared in the header:</p>
+<p><img src="img/19.png" alt=""></p>
+<p>and at the foot of each lab:</p>
+<p><img src="img/20.png" alt=""></p>
+<h2>Exercise 3: Organising your workspace</h2>
+<p>When building a course, you often need several applications available concurrently:</p>
+<ul>
+<li>Submlime Text Editor ... to compose the course</li>
+<li>Web Browser ... to see the current generated version of the course web</li>
+<li>Shell ... to regenerate the course when you wish to view the latest version</li>
+<li>File Explorer/Finder ... to rename/reorganise the folders/files as you develop the course.</li>
+</ul>
+<p>These could be organised like this -</p>
+<p><img src="img/21.png" alt=""></p>
+<p>or any other suitable structure...</p>
+<p>To summarise:</p>
+<ul>
+<li>use Sublime to edit the course &#39;sources&#39; (all files except those in the <code>public-site</code> directory).</li>
+<li>use A web browser to review <code>public-site</code> directory only</li>
+<li>run the &#39;tutors&#39; command to periodically regenerated the course as you progress with composition.</li>
+</ul>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+</script>
+</body>
+</html>

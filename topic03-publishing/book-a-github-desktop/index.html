@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+        type="text/css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+        rel="stylesheet"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+  <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    
+      <a href="../index.html">  Publishing  </a>
+    
+  </header>
+  <div class="right tab-menu menu">
+    
+      <a class="item" data-tab="Lab-03-Publish">
+        Lab-03-Publish
+      </a>
+    
+      <a class="item" data-tab="01">
+        01
+      </a>
+    
+      <a class="item" data-tab="02">
+        02
+      </a>
+    
+      <a class="item" data-tab="03">
+        03
+      </a>
+    
+      <a class="item" data-tab="04">
+        04
+      </a>
+    
+      <a class="item" data-tab="Exercises">
+        Exercises
+      </a>
+    
+  </div>
+</div>
+
+<div class="ui pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic01-setup/book-setup/index.html">Lab-01-Setup </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic02-labs/book-labs/index.html">Lab-02-Composition </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-a-github-desktop/index.html">Lab-03-Publish </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-b-moodle/index.html">Lab-04-Moodle </a>
+      
+    
+      
+        <a class="item"
+           href="https://wit-tutors.github.io/tutors-starter-public//topic04-portfolios/book-portfolio/index.html">Lab-05-Portfolio </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment">
+      <br>
+      
+        <div class="ui tab segment lab" data-tab="Lab-03-Publish">
+          <h1>Objectives</h1>
+<p>Publishing a Lab to Github using Github Desktop</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="01">
+          <h1>Github Gh-pages</h1>
+<p>Github provides a convenient, free and rapid static public web site publishing facility called Gh-Pages</p>
+<ul>
+<li><a href="https://pages.github.com/">https://pages.github.com/</a></li>
+</ul>
+<p>This step assumes you have a github account, and git has been installed in your workstation.</p>
+<p>Recall that tutors generates a static web site to the <code>./public-site</code> folder:</p>
+<p><img src="img/01.png" alt="public-site"></p>
+<p>This folder is what we need to publish - not the &#39;source&#39; for the course web. 
+To publish a course web requires these steps: </p>
+<ul>
+<li>Create the repository locally</li>
+<li>Commit all relevant files to the local repo</li>
+<li>Synchronise the repository with github</li>
+</ul>
+<p>We will go through these steps now...</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="02">
+          <h1>Create a Repository</h1>
+<p>Open the Git Desktop app, and drag &amp; drop the <code>public-site</code> folder onto the app:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>When it lands on the app it will prompt you to create  new repository. Press <code>Create Repository</code></p>
+<p><img src="img/04.png" alt=""></p>
+<p>The app will initiuaize  new git repository in the public-site fodler. It should look like this:</p>
+<p><img src="img/05.png" alt=""></p>
+<p>Select the <code>Branch</code> button (next to &#39;master&#39; on the toolbar), enter <code>gh-pages</code> and press <code>Create new branch</code></p>
+<p><img src="img/06.png" alt=""></p>
+<p>In the next view - enter a comment in the box shown below, and press <code>Commit to gh-pages</code>:</p>
+<p><img src="img/07.png" alt=""></p>
+<p>All files are not committed - on the correct branch:</p>
+<p><img src="img/08.png" alt=""></p>
+<p>These files are still only on your local workstation, however. The next step is to publish these files on the web via github.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="03">
+          <h1>Publishing to Githib</h1>
+<p>To get the site to github - press the <code>Publish</code> button:</p>
+<p>As this is the first attempt at publishing from this repository, we will be prompted for a github hosted repository. Chose a suitable name here and press <code>Publish...</code></p>
+<p><img src="img/09.png" alt=""></p>
+<p>Within a few moments the site should be &#39;synced&#39; - and we should be able to browse the site </p>
+<p><img src="img/11.png" alt=""></p>
+<p>The url will be something like:</p>
+<ul>
+<li><a href="https://[YOUR-GITHUB-NAME].github.io/[YOUR-REPO-NAME">https://[YOUR-GITHUB-NAME].github.io/[YOUR-REPO-NAME</a>]</li>
+</ul>
+<p>Verify that yours is published now. Visit the various topics/labs to confirm all aspects are available.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="04">
+          <h1>Updating a site</h1>
+<p>Once the site is already published the workflow for updating a site is simplified:</p>
+<ul>
+<li>Edit the Course Source</li>
+<li>Regenerate the  (using the tutors command)</li>
+<li>Commit updates to the local repository</li>
+<li>Synchronise the local and remote repositories</li>
+<li>Check if updates published</li>
+</ul>
+<p>We can try this now. </p>
+<h2>Edit the Course Source</h2>
+<p>Make a change to a course you may have been experimenting with - introduce an image or change the wording of a talk or modify the text in a step. If you are using Sublime, make sure to save the file(s). Remember, you are editing the files in <code>tutors-starter-0</code>, not <code>tutors-starter-0/oublic-site</code>.</p>
+<h2>Regenerate the Course</h2>
+<p>From within the course source folder (tutors-starter-0), run the <code>tutors</code> command:</p>
+<p><img src="img/16.png" alt=""></p>
+<h2>Commit updates to the local repository</h2>
+<p>Changes made by the above step will be automatically detected by Github Desktop. We commit the changes with a suitable message:</p>
+<p><img src="img/12.png" alt=""></p>
+<p>(press <code>Commit to gh-pages</code> above)</p>
+<h2>Synchronise the local and remote repositories</h2>
+<p>Press <code>Sync</code>:</p>
+<p><img src="img/13.png" alt=""></p>
+<p>This should quickly update the remote site:</p>
+<p><img src="img/14.png" alt="">
+<img src="img/15.png" alt=""></p>
+<h2>Check if updates published</h2>
+<p>Now check if the updates are live:</p>
+<ul>
+<li><a href="https://[YOUR-GITHUB-NAME].github.io/[YOUR-REPO-NAME">https://[YOUR-GITHUB-NAME].github.io/[YOUR-REPO-NAME</a>]</li>
+</ul>
+<p>This may take a few minutes for the changes to percolate through the caches etc... Sometimes you can accelerate the process by refreshing your page in the browser while holding the <code>shift</code> key down (forces cache clearance for current site).</p>
+<p>Only updated files will be pushed - so the <code>push</code> should be much quicker than the very first push to this repo.</p>
+
+        </div>
+      
+        <div class="ui tab segment lab" data-tab="Exercises">
+          <h1>Exercises</h1>
+<h2>Exercise 1: Practice Updating &amp; Publishing the Public Site</h2>
+<p>Try another edit to the source of the course to get used to the process. Remember, it will involve the following:</p>
+<ul>
+<li>Make the change to the source</li>
+<li>Regenerate the course (running <code>tutors</code> command in the course folder)</li>
+<li>Inspect the course locally first (opening public-site/index.html) to see if the changes are as expected</li>
+<li>Commit auto detected modifications in Github Desktop</li>
+<li>Sync the repository</li>
+</ul>
+<h2>Exercise 2: Publish the Source to github</h2>
+<p>Currently github hosts the public-site contents only - and we are using the gh-pages facility to have the contents served as a web site. We could try creating another repo on github - this time to host the source of the course. I.e. the <code>tutors-starter-0</code> contents.</p>
+<p>Before you do this, however, there is one important step  </p>
+<ul>
+<li><strong>delete the .git directory in tutors-starter-0 folder</strong>. </li>
+</ul>
+<p>This is important - as the starter course was cloned from a git repository - and is currently linked to this origin. Once this the <code>.git</code> folder is deleted, we are breaking this link.</p>
+<p>You can use the same steps we used to create the public site repo to create a separate repo for the course sources:</p>
+<ul>
+<li>drag and drop <code>tutors-starter-0</code> onto the Github desktop app (see below for potential error that can occur here)</li>
+<li>press create a new repo</li>
+<li>commit all files to the local repo - this time stay with the <code>master</code> branch</li>
+<li><p>publish the repo to github</p>
+<p>A bug in Github Desktop may cause an error to be reported in the <code>drag &amp; drop</code> step. If this occurs, terminate Github Desktop, restart it and try drag &amp; drop again. It should work the second time. In the git labs later in workshop we cover a better technique for initialising repositories.</p>
+</li>
+</ul>
+<p>The source repo contains a file called <code>.gitignore</code> - which contains the following:</p>
+<pre><code>public-site
+private-site
+standalone-site</code></pre>
+<p>This excludes these subdirectories from the repo - which we are happy to do. This is the structure we can aim for:</p>
+<p><img src="img/17.png" alt=""></p>
+<p>in our <code>source</code> repo, we can use the master branch.</p>
+<p>Check the github web site on your account to see that you now have 2 separate repositories.</p>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+  $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+</script>
+</body>
+</html>
