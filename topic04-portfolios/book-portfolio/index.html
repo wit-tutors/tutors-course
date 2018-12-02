@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <style>
-    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,91 +66,110 @@ h3 {
 
 
 
-  </style>
-</head>
+      
 
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
 
 
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    
-      <a href="../index.html">  Portfolios  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Lab-05-Portfolio">
-        Lab-05-Portfolio
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="Exercises">
-        Exercises
-      </a>
-    
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  Portfolios  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-05-Portfolio">
+          Lab-05-Portfolio
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
       
-        <a class="item"
-           href="https://wit-tutors.github.io/tutors-starter-public//topic01-setup/book-setup/index.html">Lab-01-Setup </a>
+        
+          <a class="item"
+             href="https://wit-tutors.github.io/tutors-starter-public//topic01-setup/book-setup/index.html">Lab-01-Setup </a>
+        
       
-    
+        
+          <a class="item"
+             href="https://wit-tutors.github.io/tutors-starter-public//topic02-labs/book-labs/index.html">Lab-02-Composition </a>
+        
       
-        <a class="item"
-           href="https://wit-tutors.github.io/tutors-starter-public//topic02-labs/book-labs/index.html">Lab-02-Composition </a>
+        
+          <a class="item"
+             href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-a-github-desktop/index.html">Lab-03-Publish </a>
+        
       
-    
+        
+          <a class="item"
+             href="https://wit-tutors.github.io/tutors-starter-public//topic04-portfolios/book-portfolio/index.html">Lab-05-Portfolio </a>
+        
       
-        <a class="item"
-           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-a-github-desktop/index.html">Lab-03-Publish </a>
-      
-    
-      
-        <a class="item"
-           href="https://wit-tutors.github.io/tutors-starter-public//topic03-publishing/book-b-moodle/index.html">Lab-04-Moodle </a>
-      
-    
-      
-        <a class="item"
-           href="https://wit-tutors.github.io/tutors-starter-public//topic04-portfolios/book-portfolio/index.html">Lab-05-Portfolio </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="Lab-05-Portfolio">
-          <h1>Objectives</h1>
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-05-Portfolio">
+            <h1>Objectives</h1>
 <p>Multiple modules can be integrated into a portfolio, which can be further organised into categories.</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="01">
-          <h1>Portfolio Example</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Portfolio Example</h1>
 <p>Visit this site here:</p>
 <ul>
 <li><a href="https://wit-tutors.github.io/modules/">https://wit-tutors.github.io/modules/</a></li>
@@ -166,10 +185,10 @@ h3 {
 <h2>Group 3</h2>
 <p><img src="img/04.png" alt=""></p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="02">
-          <h1>Portfolio Example</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Portfolio Example</h1>
 <p>The easiest way to explore portfolios is to have tutors generate a set of starter courses, and automatically aggregate them.</p>
 <p>Create an empty folder - called <code>portfolio</code> below (but can be any name) - and use tutors to create three new courses:</p>
 <pre><code>tutors new
@@ -195,10 +214,10 @@ tutors course web generator: 1.4.0
 <p><img src="img/08.png" alt=""></p>
 <p>Each of these is an individual module, with the revised navigation as discussed before.</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="03">
-          <h1>Portfolio Structure</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Portfolio Structure</h1>
 <p>Tutors will have generated a <code>portfolio.yaml</code> file like this:</p>
 <h2>portfolio.yaml</h2>
 <pre><code>title: &#39;A collection of recent Modules in Modern Computer Science&#39;
@@ -236,10 +255,10 @@ courseGroups:
       - tutors-starter-4</code></pre>
 <p>We can restructure this to express different subgroups (next step).</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="04">
-          <h1>Module Grouping</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Module Grouping</h1>
 <p>This is the current portfolio.yaml:</p>
 <pre><code>title: &#39;A collection of recent Modules in Modern Computer Science&#39;
 credits: &#39;Department of Computing &amp; Mathematics, WIT&#39;
@@ -275,10 +294,10 @@ courseGroups:
 </ul>
 <p>Also note, the generated site is completely separate from the individual <code>public-site</code> as generated in each module.</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="Exercises">
-          <h1>Exercises</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
 <h2>Exercise 1: Extend Portfolio</h2>
 <p>Incorporate the module you generated in the earlier labs into the example portfolio you have just created. The following steps should suffice to do this:</p>
 <ul>
@@ -316,14 +335,16 @@ topic05-git</code></pre>
 <p>This version of the credits is local to that particular lab.</p>
 <p>Try giving yourself the credit for one of the labs, or topics - and see how it is rendered when the course is generated.</p>
 
-        </div>
-      
+          </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
+
+
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -343,7 +364,7 @@ topic05-git</code></pre>
   }
 });
 
-  $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -376,6 +397,18 @@ topic05-git</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
 </html>
